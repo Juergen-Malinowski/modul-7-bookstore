@@ -1,1 +1,34 @@
-/* for bookstore */
+/* Schreibweise: ID mit Bindestrich, Class mit Unterstrich, JS in CamelCase */
+
+/* BASIS-Class */
+
+h1 {}
+
+h2 {}
+
+
+/* CLASS der ID-Boxen ... */
+
+book_store {}
+
+book_title {}
+
+book_cover {}
+
+img_cover {}
+
+img_heart {}
+
+likes_counter {}
+
+show_discription {}
+
+book_details {}
+
+book_comments {}
+
+
+
+/* sonstige CLASS ... */
+
+

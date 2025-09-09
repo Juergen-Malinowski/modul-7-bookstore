@@ -1,3 +1,5 @@
+// Schreibweise: ID mit Bindestrich, Class mit Unterstrich, JS in CamelCase
+
 // DEFINITION OBJECT-Database AND VARIABLE/CONST
 
 let books = [

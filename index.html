@@ -1,3 +1,5 @@
+<!-- Schreibweise: ID mit Bindestrich, Class mit Unterstrich, JS in CamelCase -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,40 +12,44 @@
     <!-- <link rel="icon" href="./assets/favicon/favicon.png" type="image/png" sizes="16x16"> -->
 </head>
 
-<body>
+<body onload="">
+    <!-- erstes Bild für User aufbauen mit onload !?!-->
+
     <header>
     </header>
 
     <dialog>
         <!-- Bücher in einer Sliteshow per Dialog darstellen -->
 
-        <main>
+        <main id="book-store" class="book_store">
 
-            <h1>HIER Buchtitel als h1 platzieren</h1>
+            <h1 id="book-title" class="book_title">HIER Buchtitel als h1 platzieren</h1>
 
-            <figure>
+            <figure id="book-cover" class="book_cover">
                 <!-- Cover-Bild des Buches ausgeben -->
 
-                <img src="" alt="">
+                <img id="img-cover" class="img_cover" src="" alt="">
                 <!-- Cover-Bild ausgeben -->
 
                 <div>
                     <!-- rechts vom Bild, nach oben gesetzt: "Symbol Herz" / darunter: "Anzahl Likes" -->
+                    <img id="img-heart" class="img_heart" src="" alt="">
+                    <p id="likes-counter" class="likes_counter">HIER counter Likes</p>
                 </div>
 
 
 
-                <Button>
+                <Button id="show-discription" class="show_discription">
                     <!-- in einem separaten Dialog eine Buchbeschreibung ausgeben               -->
-                     <!-- Platzierung: in einer Spalte mit Herz-Symbol und Likes, nur unten ausgerichtet -->
+                    <!-- Platzierung: in einer Spalte mit Herz-Symbol und Likes, nur unten ausgerichtet -->
                 </Button>
             </figure>
 
-            <div>
+            <div id="book-details" class="book_details">
                 <!-- Box für Details zum Buch: Preis, Author, Erscheinungsjahr, Genre -->
             </div>
 
-            <div>
+            <div id="book-comments" class="book_comments">
                 <!-- Kommentare-BOX -->
 
                 <h2>Kommentare:</h2>
