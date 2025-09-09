@@ -1,1 +1,1 @@
-// for bookstore
+// DEFINITION OBJECT-Database AND VARIABLE/CONST
