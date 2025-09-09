@@ -10,7 +10,7 @@ let books = [
         "price": 18.95,
         "publishedYear": 1937,
         "genre": "Fantasy",
-        "discription": "In einem Loch im boden, da lebte ein Hobbit... Es war ein schöner Morgen, als ein alter Mann bei Bilbo anklopfte. 'Wir wollen hier keine Abenteuer, vielen Dank!', wimmelte er den ungebetenen Besucher ab...",
+        "discription": "In einem Loch im Boden, da lebte ein Hobbit... Es war ein schöner Morgen, als ein alter Mann bei Bilbo anklopfte. 'Wir wollen hier keine Abenteuer, vielen Dank!', wimmelte er den ungebetenen Besucher ab... 'Ich bin Gandalf', antwortete dieser. Und die Abenteuer hatten schon begonnen ...",
         "comments": [
             {
                 "name": "Halodri",
@@ -44,7 +44,7 @@ let books = [
         "price": 17.95,
         "publishedYear": 2007,
         "genre": "Fantasy",
-        "discription": "Die böse Macht Morgoths breitet sich immer weiter nach Beleriand aus. Horden von Orks und der fürchterliche Drache Glaurung bedrohen seine Bewohner... Während Húrin von Morgoth gefangen gehalten wird, nimmt sein tapferer Sohn Túrin den Kampf gegen ds Böse auf ...",
+        "discription": "Die böse Macht Morgoths breitet sich immer weiter nach Beleriand aus. Horden von Orks und der fürchterliche Drache Glaurung bedrohen seine Bewohner... Während Húrin von Morgoth gefangen gehalten wird, nimmt sein tapferer Sohn Túrin den Kampf gegen das Böse auf ...",
         "comments": [
             {
                 "name": "Halodri",
@@ -172,9 +172,18 @@ let books = [
     },
 ]
 
+// test-area
 console.log(books[1]);
 console.log(books[1].comments);
 console.log(books[3].bookName + " von " + books[3].author + " aus " + books[3].publishedYear);
+
+for (let index = 0; index < books.length; index++) {
+    console.log(books[index].discription);
+
+
+}
+
+// End of test-area
 
 
 
