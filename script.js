@@ -2,6 +2,7 @@
 
 let books = [
     {
+        // book 1
         "bookName": "Der Hobbit",
         "author": "J.R.R. Tolkien",
         "likes": 8754,
@@ -34,6 +35,7 @@ let books = [
     },
 
     {
+        // book 2
         "bookName": "Die Kinder Húrins",
         "author": "J.R.R. Tolkien",
         "likes": 3850,
@@ -66,6 +68,7 @@ let books = [
     },
 
     {
+        // book 3
         "bookName": "Das Silmarillion",
         "author": "J.R.R. Tolkien",
         "likes": 4190,
@@ -98,6 +101,7 @@ let books = [
     },
 
     {
+        // book 4
         "bookName": "ASKIR - Die komplette Saga 1",
         "author": "Richard Schwartz",
         "likes": 2758,
@@ -130,6 +134,7 @@ let books = [
     },
 
     {
+        // book 5
         "bookName": "Die Elfen",
         "author": "Bernhard Hennen",
         "likes": 6273,
