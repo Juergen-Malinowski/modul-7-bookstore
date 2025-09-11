@@ -1,8 +1,3 @@
-// Schreibweise: ID mit Bindestrich, Class mit Unterstrich, JS in CamelCase
-
-// DEFINITION VARIABLE/CONST
-// const dialogActivity = document.getElementById("book-store");
-
 // test-area
 // console.log(books[1]);
 // console.log(books[1].comments);
@@ -19,25 +14,38 @@
 // End of test-area
 
 
-// DIALOG-Control / open-close
-// function openDialog() {
 
-//     dialogActivity.showModal();
-//         showBooks();
 
+
+// START script-JS
+
+
+// DEFINITION VARIABLE/CONST
+let theBook = document.getElementById("book-list");
+
+function showBooks() {
+    book_list.innerHTML = "";
+    for (let index = 0; index < books.length; index++) {
+        book_list.innerHTML += renderBooks(index);
+    }
+}
+
+function renderBooks(index) {
+    // console.log(books[index].bookName);
+    return `
+        <h2> ${ books[index].bookName }</h2>
+        <img class="img_grafik" src = "${books[index].bookCover}"  alt = "">
+    `
+}
+
+// function renderMyImg(index) {
+//     // onkeyup and onclick for User-Action
+//     return `
+//         <img onclick="showBigImg(${index}, event)" 
+//         onkeyup="showBigImg(${index}, event)"
+//         class="img_size" src="./assets/img/${myImg[index]}" tabindex="0" 
+//         aria-label="./assets/img/${myDiscribtion[index]}" 
+//         alt="./assets/img/${myDiscribtion[index]}">
+//         `
 // }
-
-
-// function showBooks() {
-//     let bookTitle = document.getElementById("book-cover");
-//     for (let index = 0; index < books.length; index++) {
-//         console.log(books[index].bookName);
-//         bookTitle.innerHTML += `<p class = "book_title">${books[index].bookName}</p>`;
-//         bookTitle.innerHTML += `<img class="img_cover" src="${books[index].bookCover}"  alt="">`
-
-
-
-//     };
-// }
-
 
