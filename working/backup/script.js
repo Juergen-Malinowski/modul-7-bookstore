@@ -27,6 +27,22 @@ function openDialog() {
 
 }
 
+// Klären, welche der nachfolgenden Funktionen noch nötig sind
+
+// function protectPopagation(event) {
+//     event.stopPopagation;
+// }
+
+// function closeDialog(event) {
+//     // to check rihgt Keys for close this dialog (WCAG)
+//     if (event.key === " " || event.key === "Enter" || event.type === "click") {
+//     dialogActivity.close();
+//     event.stopPopagation;
+//     } else {
+//         return
+//     }
+// }
+
 
 function showBooks() {
     let bookTitle = document.getElementById("book-cover");

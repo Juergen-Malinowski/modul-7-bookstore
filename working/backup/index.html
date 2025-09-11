@@ -1,0 +1,71 @@
+<!-- Schreibweise: ID mit Bindestrich, Class mit Unterstrich, JS in CamelCase -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book-Store</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./standard.css">
+    <!-- <link rel="icon" href="./assets/favicon/favicon.png" type="image/png" sizes="16x16"> -->
+</head>
+
+<body onload="openDialog()">
+
+    <header>
+    </header>
+
+    <dialog id="book-store" class="book_store">
+        <!-- Bücher im Dialog darstellen -->
+
+        <main class="main_box">
+            <!-- <h1 id="book-title"></h1> -->
+
+            <figure id="book-cover">
+                <!-- Buches ausgeben -->
+
+                <div>
+                    <!-- rechts vom Bild, nach oben gesetzt: "Symbol Herz" / darunter: "Anzahl Likes" -->
+                    <img id="img-heart" class="img_heart" src="" alt="">
+                    <p id="likes-counter" class="likes_counter">HIER counter Likes</p>
+                </div>
+
+
+
+                <Button id="show-discription" class="show_discription">
+                    <!-- in einem separaten Dialog eine Buchbeschreibung ausgeben              
+                    Platzierung: in einer Spalte mit Herz-Symbol und Likes, nur unten ausgerichtet -->
+                </Button>
+            </figure>
+
+            <div id="book-details" class="book_details">
+                Box für Details zum Buch: Preis, Author, Erscheinungsjahr, Genre
+            </div>
+
+            <div id="book-comments" class="book_comments">
+                Kommentare-BOX
+
+                <h2 class="comments">Kommentare:</h2>
+
+                <div id="list-comments" class="list_comments">
+                    Auflistung der Kommentare
+                </div>
+
+            </div>
+
+        </main>
+
+    </dialog>
+
+
+    <footer>
+        <!-- Inhalt footer ??? -->
+    </footer>
+
+</body>
+<script src="./db.js"></script>
+<script src="./script.js"></script>
+
+</html>
