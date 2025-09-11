@@ -1,7 +1,7 @@
 // Schreibweise: ID mit Bindestrich, Class mit Unterstrich, JS in CamelCase
 
 // DEFINITION VARIABLE/CONST
-const dialogActivity = document.getElementById("book-store");
+// const dialogActivity = document.getElementById("book-store");
 
 // test-area
 // console.log(books[1]);
@@ -20,24 +20,24 @@ const dialogActivity = document.getElementById("book-store");
 
 
 // DIALOG-Control / open-close
-function openDialog() {
+// function openDialog() {
 
-    dialogActivity.showModal();
-        showBooks();
+//     dialogActivity.showModal();
+//         showBooks();
 
-}
-
-
-function showBooks() {
-    let bookTitle = document.getElementById("book-cover");
-    for (let index = 0; index < books.length; index++) {
-        console.log(books[index].bookName);
-        bookTitle.innerHTML += `<p class = "book_title">${books[index].bookName}</p>`;
-        bookTitle.innerHTML += `<img class="img_cover" src="${books[index].bookCover}"  alt="">`
+// }
 
 
+// function showBooks() {
+//     let bookTitle = document.getElementById("book-cover");
+//     for (let index = 0; index < books.length; index++) {
+//         console.log(books[index].bookName);
+//         bookTitle.innerHTML += `<p class = "book_title">${books[index].bookName}</p>`;
+//         bookTitle.innerHTML += `<img class="img_cover" src="${books[index].bookCover}"  alt="">`
 
-    };
-}
+
+
+//     };
+// }
 
 
