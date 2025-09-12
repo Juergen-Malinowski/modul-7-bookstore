@@ -110,7 +110,7 @@ let books = [
     {
         // book 4
         "bookName": "ASKIR - Die komplette Saga 1",
-        "bookCover": "./assets/img/akir.jpg",
+        "bookCover": "./assets/img/askir.jpg",
         "author": "Richard Schwartz",
         "likes": 2758,
         "liked": true,

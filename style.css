@@ -60,6 +60,8 @@ h2 {
     margin: 5px;
     margin-bottom: 20px;
     margin-left: 90px;
+    object-fit: contain;
+    background-color: blue;
 }
 
 .heart_img_grafik {
@@ -141,8 +143,14 @@ h2 {
 
 }
 
+.comment_position{
+
+    background-color: blue;
+}
+
 .comment_grafik {
 
+    background-color: blue;
 }
 
 /* sonstige CLASS ... */

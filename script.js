@@ -27,22 +27,14 @@ function showBooks() {
     bookList = document.getElementById("book_list");
 
     for (let index = 0; index < books.length; index++) {
-        bookList.innerHTML += renderBooks(index);
-
-        for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
-            bookList.innerHTML += renderComments(index, indexList);
-            // console.log(books[index].comments[indexList].name);
-            // console.log(books[index].comments[indexList].comment);
-
-        }
+        bookList.innerHTML += renderBooks(index, bookList);
     }
 }
 
 
-function renderBooks(index) {
+function renderBooks(index, bookList) {
     // console.log(books[index].bookName);
     return `
-        <section  class="main_grafik">
             <h2> ${books[index].bookName}</h2>
 
             <!-- show: Book-Cover, Like-Heart, Likes ... -->
@@ -64,25 +56,29 @@ function renderBooks(index) {
                     <p class="book_details_content">Story: </p>
                     <p class="book_details_mini">${books[index].discription} </p>
                 </div>
+                <p class="position_book_details">Kommentare:</p>
+                ${showComments(index, bookList)}
             </div>
-        </section>
-
     `
 }
+function showComments (index, bookList) {
+for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
+    bookList.innerHTML += renderComments(index, indexList);
+    // console.log(books[index].comments[indexList].name);
+    // console.log(books[index].comments[indexList].comment);
 
-// function showComments(index) {
-//     for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
-//         bookList.innerHTML += renderComments(index, indexList);
-//         console.log(books[index].comments[indexList].name);
-//         console.log(books[index].comments[indexList].comment);
-
-//     }
-// }
+}
+}
 
 function renderComments(index, indexList) {
+    let blank = ".";
     return `
-        <p class="comment_grafik">${books[index].comments[indexList].name}</p>
-        <p class="comment_grafik">${books[index].comments[indexList].comment}</p><br>
+        <div class="comment_position">
+            <p class="comment_grafik">${books[index].comments[indexList].name}</p>
+            <p class="comment_grafik">${books[index].comments[indexList].comment}</p>
+            <p class="comment_grafik">${blank}</p>
+
+        </div>
     `
 }
 
