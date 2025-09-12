@@ -132,6 +132,16 @@ h2 {
 }
 
 .comment_list_grafik {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-right: 130px;
+    color: bisque;
+    background-color: blue;
+
+}
+
+.comment_grafik {
 
 }
 

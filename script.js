@@ -21,16 +21,23 @@
 
 
 // DEFINITION VARIABLE/CONST
-let theBook = document.getElementById("book-list");
+
 
 function showBooks() {
-    book_list.innerHTML = "";
-    comments_list.innerHTML = "";
+    bookList = document.getElementById("book_list");
+
     for (let index = 0; index < books.length; index++) {
-        book_list.innerHTML += renderBooks(index);
-        comments_list.innerHTML += showComments(index);
+        bookList.innerHTML += renderBooks(index);
+
+        for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
+            bookList.innerHTML += renderComments(index, indexList);
+            // console.log(books[index].comments[indexList].name);
+            // console.log(books[index].comments[indexList].comment);
+
+        }
     }
 }
+
 
 function renderBooks(index) {
     // console.log(books[index].bookName);
@@ -57,22 +64,25 @@ function renderBooks(index) {
                     <p class="book_details_content">Story: </p>
                     <p class="book_details_mini">${books[index].discription} </p>
                 </div>
-                
             </div>
         </section>
+
     `
 }
 
-function showComments(index) {
-    comments_list.innerHTML = "";
-    for (let indexList = 0; indexList < books.length; indexList++) {
-        comments_list.innerHTML += renderComments(index, indexList);
-    }
-}
+// function showComments(index) {
+//     for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
+//         bookList.innerHTML += renderComments(index, indexList);
+//         console.log(books[index].comments[indexList].name);
+//         console.log(books[index].comments[indexList].comment);
+
+//     }
+// }
 
 function renderComments(index, indexList) {
     return `
-
+        <p class="comment_grafik">${books[index].comments[indexList].name}</p>
+        <p class="comment_grafik">${books[index].comments[indexList].comment}</p><br>
     `
 }
 
