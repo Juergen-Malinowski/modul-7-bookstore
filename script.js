@@ -56,18 +56,21 @@ function renderBooks(index, bookList) {
                     <p class="book_details_content">Story: </p>
                     <p class="book_details_mini">${books[index].discription} </p>
                 </div>
-                <p class="position_book_details">Kommentare:</p>
-                ${showComments(index, bookList)}
+
             </div>
     `
 }
-function showComments (index, bookList) {
-for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
-    bookList.innerHTML += renderComments(index, indexList);
-    // console.log(books[index].comments[indexList].name);
-    // console.log(books[index].comments[indexList].comment);
 
-}
+
+
+function showComments(index) {
+    let commentsList = document.getElementById("show_comments");
+    for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
+        commentsList.innerHTML += renderComments(index, indexList);
+        // console.log(books[index].comments[indexList].name);
+        // console.log(books[index].comments[indexList].comment);
+
+    }
 }
 
 function renderComments(index, indexList) {

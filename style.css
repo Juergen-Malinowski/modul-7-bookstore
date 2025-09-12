@@ -143,13 +143,22 @@ h2 {
 
 }
 
+.show_box_size {
+    width: 100px;
+    height: 300px;
+    margin-right: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
 .comment_position{
 
     background-color: blue;
 }
 
 .comment_grafik {
-
+    font-size: 12px;
     background-color: blue;
 }
 
