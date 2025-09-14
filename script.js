@@ -68,12 +68,15 @@ function renderBooks(index) {
                         <p class="book_details">Autor: ${books[index].author} </p>
                         <p class="book_details_dark">Erscheinungsjahr: ${books[index].publishedYear} </p>
                         <p class="book_details_dark">Genre: ${books[index].genre} </p><br>
+                        <p class="book_details">Die Story:</p>
+                        <p class="book_details_dark">${books[index].discription} </p><br>
                     </div>
 
                     <!-- // show: Book-Comments ... -->
                     <p class="comments_grafik_great">Kommentare:</p>
                     <div id="comments_positon${index}" class="comments_grafik">
                     </div>
+
                 </div>
             </div>
         </section>
@@ -92,33 +95,29 @@ function renderComments(index, indexList) {
 
 function getComments(index, indexList) {
     return `
-        <input class="box_grafik" id="user_input" type="text" placeholder="User-Name:" required>
-        <input class="box_grafik" id="comment_input" type="text" placeholder="Ihr Kommentar..." required>
-
-        <button class="button_grafik" onclick="newComments(${index}, ${indexList})" 
-            type="submit">absenden</button>
+        <input class="box_grafik" id="user_input${index}" type="text" placeholder="User-Name:" required>
+        <input class="box_grafik" id="comment_input${index}" type="text" placeholder="Ihr Kommentar..." required>
         <p class="comments_incorrect_grafik" id="input_incorrect"></p>
+        <button class="button_grafik" onclick="newComments(${index})" 
+            type="submit">absenden</button>
+
     `
 }
 
-function newComments(index, indexList) {
-    let inputUser = "AFFE";
-    let inputComment = "Juppie";
+function newComments(index) {
+    let inputUser = "A";
+    let inputComment = "B";
     console.log("Username NEU: ", inputUser);
     console.log("Kommentar NEU: ", inputComment);
 
     let userContent = "";
     let commentContent = "";
-    userContent = document.getElementById('user_input');
-    commentContent = document.getElementById('comment_input');
-    
+    userContent = document.getElementById(`user_input${index}`);
+    commentContent = document.getElementById(`comment_input${index}`);
+
     let clearInputNote = false;
-
-
-
     console.log("Username NEU: ", userContent.value);
     console.log("Kommentar NEU: ", commentContent.value);
-    // bis hierher alles OK !!!!!!!!!!!!!!!!!!!!!!
 
     if (userContent.value != "" && commentContent.value != "") {
         // NUR, WENN ... in BEIDEN Feldern ein neuer Wert vorliegt ...
@@ -145,15 +144,28 @@ function newComments(index, indexList) {
     } else {
         // NUR, WENN ... KEIN Feld ausgefüllt wurde ...
         input_incorrect.innerHTML = "Bitte zuerst eine Eingabe machen!";
+        console.log(input_incorrect.innerHTML);
         clearInputNote = true;
         console.log(clearInputNote, "beide Felder nicht ausgefüllt");
         return;
     }
-    // input_incorrect.innerHTML = "";
-    clearInputNote = false;
-    showBooks();
-    console.log("Function showBooks wurde gestartet");
+    input_incorrect.innerHTML = "";
 
+    // show comments with new comment
+    for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
+        if (indexList == 0) {
+            commentsList = document.getElementById(`comments_positon${index}`);
+            commentsList.innerHTML = "";
+        }
+
+        commentsList.innerHTML += renderComments(index, indexList);
+
+        if (indexList == books[index].comments.length - 1) {
+
+            commentsList.innerHTML += getComments(index, indexList);
+        }
+    }
+    console.log("Function renderComments wurde gestartet");
 
     // Eingabefeld wieder leeren
     userContent.value = "";
