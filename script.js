@@ -22,8 +22,20 @@
 function showBooks() {
     bookList = document.getElementById("book_list");
 
+    let redHeart = "./assets/logo/red-heart-48px.png"
+    let blackHeart = "./assets/logo/black-heart-48px.png"
+    let showHeart = "";
+
     for (let index = 0; index < books.length; index++) {
-        bookList.innerHTML += renderBooks(index);
+
+        // check, what heart is to render
+        if (books[index].liked) {
+            showHeart = redHeart;
+        } else {
+            showHeart = blackHeart;
+        }
+
+        bookList.innerHTML += renderBooks(index, showHeart);
 
         for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
             if (indexList == 0) {
@@ -41,8 +53,9 @@ function showBooks() {
 }
 
 
-function renderBooks(index) {
+function renderBooks(index, showHeart) {
     // console.log(books[index].bookName);
+    
     return `
         <section  class="main_grafik">
             <h2> ${books[index].bookName}</h2>
@@ -50,10 +63,14 @@ function renderBooks(index) {
             <!-- show: Book-Cover, Like-Heart, Likes ... -->
             <div class="right_position">
                 <figure class="cover_grafik">
-                    <img class="img_grafik" src = "${books[index].bookCover}"  alt = "">
+                    <img class="img_grafik" src = "${books[index].bookCover}"  alt = "the book-cover">
                     <div class="row_likes_grafik">
-                        <img class="heart_img_grafik" src="./assets/logo/heart-thin-icon.png" alt="">
-                        <p class="likes_grafik">${books[index].likes} </p>
+                    <p class="comments_grafik" id="toggle_heart${index}" >
+                        <img class="heart_img_grafik"  
+                            onclick="toggleHeart(${index})" 
+                            src="${showHeart}" alt="Herz-ICON">
+                        <p class="likes_grafik">${books[index].likes}</p>
+                    </p>
                     </div>
                 </figure>
 
@@ -76,6 +93,7 @@ function renderBooks(index) {
 
                 </div>
             </div>
+            <a class="https_grafik" href="https://icons8.com/" target="_blank" title="icons8" class="external-link">Herz-ICONs von icons8.com</a>
         </section>
     `
 }
@@ -143,5 +161,50 @@ function newComments(index) {
             commentsList.innerHTML += getComments(index, indexList);
         }
     }
+}
+
+function toggleHeart(index) {
+    let redHeart = "./assets/logo/red-heart-48px.png"
+    let blackHeart = "./assets/logo/black-heart-48px.png"
+
+
+
+    heart = document.getElementById(`toggle_heart${index}`);
+    heart = "";
+
+    if (books[index].liked) {
+        console.log("bisher ein geliktes Buch: ", books[index].liked);
+
+        books[index].liked = false;
+        books[index].liked = books[index].liked--;
+
+        console.log("JETZT geändert auf NICHT-LIKE: ", books[index].liked);
+        console.log("Anzahl LIKES: ", books[index].likes);
+
+        heart.innerHTML = `<img class="heart_img_grafik"  
+                            onclick="toggleHeart(${index})" 
+                            src="${blackHeart}" alt="Herz-ICON">
+                        <p class="likes_grafik">${books[index].likes}</p>;
+                        `
+
+
+    } else {
+        console.log("bisher ein NICHT geliktes Buch: ", books[index].liked);
+        books[index].liked = true;
+        books[index].liked = books[index].liked++;
+        console.log("JETZT geändert auf LIKE: ", books[index].liked);
+        console.log("Anzahl LIKES: ", books[index].likes);
+
+        heart.innerHTML = `<img class="heart_img_grafik"  
+                            onclick="toggleHeart(${index})" 
+                            src="${redHeart}" alt="Herz-ICON">
+                        <p class="likes_grafik">${books[index].likes}</p>;    
+                    `
+    }
+
+    // allBooks = document.getElementById("book_list");
+    // allBooks = "";
+
+    // showBooks();
 }
 

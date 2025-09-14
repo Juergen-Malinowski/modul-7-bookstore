@@ -169,17 +169,27 @@ h2 {
     background-color: blue;
 }
 
-.box_grafik{
+.box_grafik {
     font-size: 20px;
     color: black;
     background-color: white;
 }
 
-.button_grafik{
+.button_grafik {
     font-size: 20px;
     color: black;
     background-color: yellow;
 }
 
+.https_grafik {
+    font-size: 12px;
+    background-color: blue;
+}
+
+.https_grafik:hover {
+    font-size: 20px;
+    cursor: pointer;
+    color: yellow;
+}
 
 /* sonstige CLASS ... */

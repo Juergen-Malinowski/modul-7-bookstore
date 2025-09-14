@@ -8,7 +8,7 @@ let books = [
         "bookCover": "./assets/img/der_hobbit.jpg",
         "author": "J.R.R. Tolkien",
         "likes": 8754,
-        "liked": true,
+        "liked": false,
         "price": 18.95,
         "publishedYear": 1937,
         "genre": "Fantasy",
