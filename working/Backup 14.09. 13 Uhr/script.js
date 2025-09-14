@@ -22,27 +22,67 @@
 
 // DEFINITION VARIABLE/CONST
 
+const dialogActivity = document.getElementById("show_comments");
+let indexMarker = 0;
+let elementReference = 0
 
-function showBooks() {
-    bookList = document.getElementById("book_list");
 
-    for (let index = 0; index < books.length; index++) {
-        bookList.innerHTML += renderBooks(index);
+// show comments by onclick in a DIALOG
 
-        for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
-            if (indexList == 0) {
-                commentsList = document.getElementById(`comments_positon${index}`);
-            }
-            commentsList.innerHTML += renderComments(index, indexList);
-        }
+// DIALOG-Control / open-close
+function openDialog() {
+    dialogActivity.showModal();
+}
+
+function protectPopagation(event) {
+    event.stopPopagation;
+}
+
+function closeDialog(event) {
+    dialogActivity.close();
+    event.stopPopagation;
+
+}
+
+
+function showComments(index) {
+    openDialog();
+    let commentsList = document.getElementById("show_comments");
+    for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
+        commentsList.innerHTML += renderComments(index, indexList);
+        // console.log(books[index].comments[indexList].name);
+        // console.log(books[index].comments[indexList].comment);
+
     }
 }
 
+function renderComments(index, indexList) {
+    let blank = ".";
+    return `
+        <div class="comment_position">
+            <p class="comment_grafik">${books[index].comments[indexList].name}</p>
+            <p class="comment_grafik">${books[index].comments[indexList].comment}</p>
+            <p class="comment_grafik">${blank}</p>
+        </div>
+    `
+}
+
+
+
+// show all Books
+
+function showBooks() {
+    dialogActivity.close();
+    bookList = document.getElementById("book_list");
+    for (let index = 0; index < books.length; index++) {
+        bookList.innerHTML += renderBooks(index);
+    }
+    protectPopagation()
+}
 
 function renderBooks(index) {
     // console.log(books[index].bookName);
     return `
-        <section  class="main_grafik">
             <h2> ${books[index].bookName}</h2>
 
             <!-- show: Book-Cover, Like-Heart, Likes ... -->
@@ -57,44 +97,24 @@ function renderBooks(index) {
 
                 <!-- // show: Book-Details ... -->
                 <div class="position_book_details">
-                    <div class="main_book_details">
-                        <p class="price_details">Preis: ${books[index].price} € </p>
-                        <p class="book_details">Autor: ${books[index].author} </p>
-                        <p class="book_details_dark">Erscheinungsjahr: ${books[index].publishedYear} </p>
-                        <p class="book_details_dark">Genre: ${books[index].genre} </p><br>
-                    </div>
-                    <div id="comments_positon${index}" class="comments_grafik">
+                    <p class="price_details">Preis: ${books[index].price} € </p>
+                    <p class="book_details">Autor: ${books[index].author} </p>
+                    <p class="book_details_dark">Erscheinungsjahr: ${books[index].publishedYear} </p>
+                    <p class="book_details_dark">Genre: ${books[index].genre} </p><br>
 
-                    </div>
-
-
-                    <!-- <div class="story_book_details">
-                        <p class="book_details_content">Story: </p>
-                        <p class="book_details_mini">${books[index].discription} </p>
-                    </div> 
-                    -->
+                    <!-- button to open Dialog for SHWO the comments -->
+                    <button onclick="showComments(${index})" class="button_open_dialog">Kommentare öffnen</button>
+                    
+                    <p class="book_details_content">Story: </p>
+                    <p class="book_details_mini">${books[index].discription} </p>
                 </div>
+
+
+
             </div>
-        </section>
-
     `
 }
 
-// function showComments(index) {
-//     for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
-//         bookList.innerHTML += renderComments(index, indexList);
-//         console.log(books[index].comments[indexList].name);
-//         console.log(books[index].comments[indexList].comment);
-
-//     }
-// }
-
-function renderComments(index, indexList) {
-    return `
-        <p class="comments_grafik">${books[index].comments[indexList].name}</p>
-        <p class="comments_grafik">${books[index].comments[indexList].comment}</p><br>
-    `
-}
 
 
 

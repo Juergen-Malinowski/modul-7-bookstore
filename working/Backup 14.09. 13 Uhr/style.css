@@ -33,11 +33,10 @@ h2 {
 
 .main_grafik {
     background-color: blue;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
     margin-top: 30px;
     margin-left: 100px;
     margin-right: 100px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -46,7 +45,7 @@ h2 {
 .right_position{
     background-color: blue;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-direction: row;
 }
 
@@ -57,11 +56,12 @@ h2 {
 }
 
 .img_grafik {
-    height: 350px;
-    aspect-ratio: auto;
-    margin-right: 5px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    width: 150px;
+    margin: 5px;
+    margin-bottom: 20px;
+    margin-left: 90px;
+    object-fit: contain;
+    background-color: blue;
 }
 
 .heart_img_grafik {
@@ -93,23 +93,6 @@ h2 {
 }
 
 .position_book_details {
-    /* display: flex; */
-
-    background-color: blue;
-}
-
-.main_book_details{
-    background-color: blue;
-}
-
-.comments_grafik {
-    background-color: blue;
-}
-
-.story_book_details{
-    width: 350px;
-    height: 50px;
-    
     background-color: blue;
 }
 
@@ -150,6 +133,44 @@ h2 {
     margin-bottom: 5px;
 }
 
+
+
+/* DIALOG open, close and action */
+dialog {
+    border: 10px solid lightgreen;
+    background-color: lightgreen;
+    border-radius: 15px;
+    /* dialog get position center */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+    /* background from DIALOG get black */
+    background-color: black;
+    margin: 0;
+}
+
+.button_open_dialog {
+    font-size: 30px;
+    color: solid black;
+    background-color: yellow;
+    border-radius: 10px;
+    position: fixed;
+    right: 5%;
+    top: 5%;
+}
+
+.button_open_dialog:hover {
+    cursor: pointer;
+    color: rgb(218, 118, 36);
+}
+
+
+
+
 .comment_list_grafik {
     font-size: 24px;
     font-weight: bold;
@@ -160,5 +181,23 @@ h2 {
 
 }
 
+.show_box_size {
+    width: 100px;
+    height: 300px;
+    margin-right: 40px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.comment_position{
+
+    background-color: blue;
+}
+
+.comment_grafik {
+    font-size: 12px;
+    background-color: blue;
+}
 
 /* sonstige CLASS ... */
