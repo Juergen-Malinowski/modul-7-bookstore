@@ -33,7 +33,14 @@ function showBooks() {
             if (indexList == 0) {
                 commentsList = document.getElementById(`comments_positon${index}`);
             }
+
             commentsList.innerHTML += renderComments(index, indexList);
+
+            if (indexList == books[index].comments.length-1) {
+                console.log(indexList);
+                
+                commentsList.innerHTML += getComments(index, indexList);
+            }
         }
     }
 }
@@ -55,24 +62,19 @@ function renderBooks(index) {
                     </div>
                 </figure>
 
-                <!-- // show: Book-Details ... -->
                 <div class="position_book_details">
+                    <!-- // show: Book-Details ... -->
                     <div class="main_book_details">
                         <p class="price_details">Preis: ${books[index].price} € </p>
                         <p class="book_details">Autor: ${books[index].author} </p>
                         <p class="book_details_dark">Erscheinungsjahr: ${books[index].publishedYear} </p>
                         <p class="book_details_dark">Genre: ${books[index].genre} </p><br>
                     </div>
+
+                    <!-- // show: Book-Comments ... -->
+                    <p class="comments_grafik_great">Kommentare:</p>
                     <div id="comments_positon${index}" class="comments_grafik">
-
                     </div>
-
-
-                    <!-- <div class="story_book_details">
-                        <p class="book_details_content">Story: </p>
-                        <p class="book_details_mini">${books[index].discription} </p>
-                    </div> 
-                    -->
                 </div>
             </div>
         </section>
@@ -80,14 +82,6 @@ function renderBooks(index) {
     `
 }
 
-// function showComments(index) {
-//     for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
-//         bookList.innerHTML += renderComments(index, indexList);
-//         console.log(books[index].comments[indexList].name);
-//         console.log(books[index].comments[indexList].comment);
-
-//     }
-// }
 
 function renderComments(index, indexList) {
     return `
@@ -97,35 +91,19 @@ function renderComments(index, indexList) {
 }
 
 
+function getComments(index, indexList) {
+    return `
+        <input class="box_grafik" id="user_input" type="text" placeholder="User-Name:" required>
+        <input class="box_grafik" id="comment_input" type="text" placeholder="Ihr Kommentar..." required>
 
-// für Mobile
-// function renderBooks(index) {
-//     // console.log(books[index].bookName);
-//     return `
-//         <section  class="main_grafik">
-//             <h2> ${books[index].bookName}</h2>
+        <button id="button_comments" class="button_grafik"
+            onclick="newComments(index, indexList)" type="submit">
+                Neuer Kommentar</button>
 
-//             <!-- show: Book-Cover, Like-Heart, Likes ... -->
+    `
+}
 
-//             <figure class="cover_grafik">
-//                 <img class="img_grafik" src = "${books[index].bookCover}"  alt = "">
-//                 <div class="row_likes_grafik">
-//                     <img class="heart_img_grafik" src="./assets/logo/heart-thin-icon.png" alt="">
-//                     <p class="likes_grafik">${books[index].likes} </p>
-//                 </div>
-//                 <br>
-//             </figure>
+function newComments(index, indexList) {
+    
+}
 
-//             <!-- // show: Book-Details ... -->
-
-//             <div class="position_book_details">
-
-//                 <p class="price_details">Preis: ${books[index].price} € </p>
-//                 <p class="book_details">Autor: ${books[index].author} </p>
-//                 <p class="book_details">Erscheinungsjahr: ${books[index].publishedYear} </p>
-//                 <p class="book_details">Genre: ${books[index].genre} </p>
-
-//             </div>
-//         </section>
-//     `
-// }
