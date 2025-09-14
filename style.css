@@ -114,6 +114,11 @@ h2 {
     background-color: blue;
 }
 
+.comments_incorrect_grafik {
+    color: red;
+    background-color: blue;
+}
+
 .story_book_details {
     width: 350px;
     height: 50px;

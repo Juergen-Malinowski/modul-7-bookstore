@@ -36,9 +36,8 @@ function showBooks() {
 
             commentsList.innerHTML += renderComments(index, indexList);
 
-            if (indexList == books[index].comments.length-1) {
-                console.log(indexList);
-                
+            if (indexList == books[index].comments.length - 1) {
+
                 commentsList.innerHTML += getComments(index, indexList);
             }
         }
@@ -96,14 +95,113 @@ function getComments(index, indexList) {
         <input class="box_grafik" id="user_input" type="text" placeholder="User-Name:" required>
         <input class="box_grafik" id="comment_input" type="text" placeholder="Ihr Kommentar..." required>
 
-        <button id="button_comments" class="button_grafik"
-            onclick="newComments(index, indexList)" type="submit">
-                Neuer Kommentar</button>
-
+        <button class="button_grafik" onclick="newComments(${index}, ${indexList})" 
+            type="submit">absenden</button>
+        <p class="comments_incorrect_grafik" id="input_incorrect"></p>
     `
 }
 
 function newComments(index, indexList) {
+    let inputUser = "AFFE";
+    let inputComment = "Juppie";
+    console.log("Username NEU: ", inputUser);
+    console.log("Kommentar NEU: ", inputComment);
+
+    let userContent = "";
+    let commentContent = "";
+    userContent = document.getElementById('user_input');
+    commentContent = document.getElementById('comment_input');
     
+    let clearInputNote = false;
+
+
+
+    console.log("Username NEU: ", userContent.value);
+    console.log("Kommentar NEU: ", commentContent.value);
+    // bis hierher alles OK !!!!!!!!!!!!!!!!!!!!!!
+
+    if (userContent.value != "" && commentContent.value != "") {
+        // NUR, WENN ... in BEIDEN Feldern ein neuer Wert vorliegt ...
+        console.log("Username NEU in IF-Schleife: ", userContent.value);
+        console.log("Kommentar NEU in IF-Schleife: ", commentContent.value);
+
+        inputUser = userContent.value;
+        inputComment = commentContent.value;
+        console.log("Username NEU in der Variablen inputUser: ", userContent.value);
+        console.log("Kommentar NEU in der Variablen inputComment: ", commentContent.value);
+
+        books[index].comments.unshift({ name: inputUser, comment: inputComment });
+
+        console.log(books[index].comments[0].name);
+        console.log(books[index].comments[0].comment);
+
+    } else if (userContent.value != "" || commentContent.value != "") {
+        // NUR, WENN ... in EINEM Feld KEINE Eingabe gemacht wurde ...
+        input_incorrect.innerHTML = "Bitte beide Felder füllen!";
+        clearInputNote = true;
+        console.log(clearInputNote, "ein Feld nicht ausgefüllt");
+        return;
+
+    } else {
+        // NUR, WENN ... KEIN Feld ausgefüllt wurde ...
+        input_incorrect.innerHTML = "Bitte zuerst eine Eingabe machen!";
+        clearInputNote = true;
+        console.log(clearInputNote, "beide Felder nicht ausgefüllt");
+        return;
+    }
+    // input_incorrect.innerHTML = "";
+    clearInputNote = false;
+    showBooks();
+    console.log("Function showBooks wurde gestartet");
+
+
+    // Eingabefeld wieder leeren
+    userContent.value = "";
+    commentContent.value = "";
+
 }
 
+
+
+
+function addNotes() {
+    // Eingabe des Users dem Array als neues Element übergeben ...
+    let noteInput = "";
+    let titleInput = "";
+    let notesContent = "";
+    let notesTitleVar = "";
+    let clearInputNote = false;
+
+    notesContent = document.getElementById('notes_input');
+    notesTitleVar = document.getElementById('title_input');
+
+    if (notesContent.value != "" && notesTitleVar.value != "") {
+        // NUR, WENN ... in BEIDEN Feldern ein neuer Wert vorliegt ...
+        noteInput = notesContent.value;
+        notes.push(noteInput);
+        localStorage.setItem("notesArchive", JSON.stringify(notes));
+        titleInput = notesTitleVar.value;
+        notesTitle.push(titleInput);
+        localStorage.setItem("notesTitleArchive", JSON.stringify(notesTitle));
+        console.log(noteInput);
+        console.log(titleInput);
+    } else if (notesContent.value != "" || notesTitleVar.value != "") {
+        // NUR, WENN ... in EINEM Feld KEINE Eingabe gemacht wurde ...
+        input_incorrect.innerHTML = "Bitte beide Felder füllen!";
+        clearInputNote = true;
+        return;
+    } else {
+        // NUR, WENN ... KEIN Feld ausgefüllt wurde ...
+        input_incorrect.innerHTML = "Bitte zuerst eine Eingabe machen!";
+        clearInputNote = true;
+        return;
+    }
+    input_incorrect.innerHTML = "";
+    clearInputNote = false;
+    listNotes();
+    listTrashNotes();
+
+    // Eingabefeld wieder leeren
+    notesContentvalue = "";
+    notesTitleVar.value = "";
+}
