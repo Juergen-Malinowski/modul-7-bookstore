@@ -10,11 +10,7 @@
 // for (let index = 0; index < books.length; index++) {
 //     console.log("Kommentare zu 'Die Elfen' ..." + books[4].comments);
 // }
-
 // End of test-area
-
-
-
 
 
 // START script-JS
@@ -62,6 +58,7 @@ function renderBooks(index) {
                 </figure>
 
                 <div class="position_book_details">
+
                     <!-- // show: Book-Details ... -->
                     <div class="main_book_details">
                         <p class="price_details">Preis: ${books[index].price} € </p>
@@ -80,20 +77,19 @@ function renderBooks(index) {
                 </div>
             </div>
         </section>
-
     `
 }
 
-
 function renderComments(index, indexList) {
+    // render the comments for the book with this INDEX
     return `
         <p class="comments_grafik">${books[index].comments[indexList].name}</p>
         <p class="comments_grafik">${books[index].comments[indexList].comment}</p><br>
     `
 }
 
-
 function getComments(index, indexList) {
+    // create Input-fields and Button for comments
     return `
         <input class="box_grafik" id="user_input${index}" type="text" placeholder="User-Name:" required>
         <input class="box_grafik" id="comment_input${index}" type="text" placeholder="Ihr Kommentar..." required>
@@ -104,49 +100,30 @@ function getComments(index, indexList) {
     `
 }
 
+
 function newComments(index) {
-    let inputUser = "A";
-    let inputComment = "B";
-    console.log("Username NEU: ", inputUser);
-    console.log("Kommentar NEU: ", inputComment);
+    // get a new comment from the user
+    let inputUser = "";
+    let inputComment = "";
 
     let userContent = "";
     let commentContent = "";
     userContent = document.getElementById(`user_input${index}`);
     commentContent = document.getElementById(`comment_input${index}`);
 
-    let clearInputNote = false;
-    console.log("Username NEU: ", userContent.value);
-    console.log("Kommentar NEU: ", commentContent.value);
-
     if (userContent.value != "" && commentContent.value != "") {
         // NUR, WENN ... in BEIDEN Feldern ein neuer Wert vorliegt ...
-        console.log("Username NEU in IF-Schleife: ", userContent.value);
-        console.log("Kommentar NEU in IF-Schleife: ", commentContent.value);
-
         inputUser = userContent.value;
         inputComment = commentContent.value;
-        console.log("Username NEU in der Variablen inputUser: ", userContent.value);
-        console.log("Kommentar NEU in der Variablen inputComment: ", commentContent.value);
-
         books[index].comments.unshift({ name: inputUser, comment: inputComment });
-
-        console.log(books[index].comments[0].name);
-        console.log(books[index].comments[0].comment);
-
     } else if (userContent.value != "" || commentContent.value != "") {
         // NUR, WENN ... in EINEM Feld KEINE Eingabe gemacht wurde ...
         input_incorrect.innerHTML = "Bitte beide Felder füllen!";
-        clearInputNote = true;
-        console.log(clearInputNote, "ein Feld nicht ausgefüllt");
         return;
 
     } else {
         // NUR, WENN ... KEIN Feld ausgefüllt wurde ...
         input_incorrect.innerHTML = "Bitte zuerst eine Eingabe machen!";
-        console.log(input_incorrect.innerHTML);
-        clearInputNote = true;
-        console.log(clearInputNote, "beide Felder nicht ausgefüllt");
         return;
     }
     input_incorrect.innerHTML = "";
@@ -154,66 +131,17 @@ function newComments(index) {
     // show comments with new comment
     for (let indexList = 0; indexList < books[index].comments.length; indexList++) {
         if (indexList == 0) {
+            // clear the old comments-LIST
             commentsList = document.getElementById(`comments_positon${index}`);
             commentsList.innerHTML = "";
         }
-
+        // render the new comments-LIST
         commentsList.innerHTML += renderComments(index, indexList);
 
         if (indexList == books[index].comments.length - 1) {
-
+            // set INPUTS and the BUTTON new
             commentsList.innerHTML += getComments(index, indexList);
         }
     }
-    console.log("Function renderComments wurde gestartet");
-
-    // Eingabefeld wieder leeren
-    userContent.value = "";
-    commentContent.value = "";
-
 }
 
-
-
-
-function addNotes() {
-    // Eingabe des Users dem Array als neues Element übergeben ...
-    let noteInput = "";
-    let titleInput = "";
-    let notesContent = "";
-    let notesTitleVar = "";
-    let clearInputNote = false;
-
-    notesContent = document.getElementById('notes_input');
-    notesTitleVar = document.getElementById('title_input');
-
-    if (notesContent.value != "" && notesTitleVar.value != "") {
-        // NUR, WENN ... in BEIDEN Feldern ein neuer Wert vorliegt ...
-        noteInput = notesContent.value;
-        notes.push(noteInput);
-        localStorage.setItem("notesArchive", JSON.stringify(notes));
-        titleInput = notesTitleVar.value;
-        notesTitle.push(titleInput);
-        localStorage.setItem("notesTitleArchive", JSON.stringify(notesTitle));
-        console.log(noteInput);
-        console.log(titleInput);
-    } else if (notesContent.value != "" || notesTitleVar.value != "") {
-        // NUR, WENN ... in EINEM Feld KEINE Eingabe gemacht wurde ...
-        input_incorrect.innerHTML = "Bitte beide Felder füllen!";
-        clearInputNote = true;
-        return;
-    } else {
-        // NUR, WENN ... KEIN Feld ausgefüllt wurde ...
-        input_incorrect.innerHTML = "Bitte zuerst eine Eingabe machen!";
-        clearInputNote = true;
-        return;
-    }
-    input_incorrect.innerHTML = "";
-    clearInputNote = false;
-    listNotes();
-    listTrashNotes();
-
-    // Eingabefeld wieder leeren
-    notesContentvalue = "";
-    notesTitleVar.value = "";
-}
