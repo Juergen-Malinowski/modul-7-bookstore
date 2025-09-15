@@ -170,7 +170,7 @@ function toggleHeart(index) {
 
 
     heart = document.getElementById(`toggle_heart${index}`);
-    heart = "";
+    heart.innerHTML = "";
 
     if (books[index].liked) {
         console.log("bisher ein geliktes Buch: ", books[index].liked);
