@@ -1,7 +1,8 @@
 // html-code (template) in js
 
 function renderBooks(index, showHeart) {
-    // show all Books
+    // console.log(books[index].bookName);
+
     return `
         <section  class="main_grafik">
             <h2> ${books[index].bookName}</h2>
@@ -22,7 +23,7 @@ function renderBooks(index, showHeart) {
 
                 <div class="position_book_details">
 
-                    <!-- show: Book-Details ... -->
+                    <!-- // show: Book-Details ... -->
                     <div class="main_book_details">
                         <p class="price_details">Preis: ${books[index].price} € </p>
                         <p class="book_details">Autor: ${books[index].author} </p>
@@ -32,15 +33,13 @@ function renderBooks(index, showHeart) {
                         <p class="book_details_dark">${books[index].discription} </p><br>
                     </div>
 
-                    <!-- show: Book-Comments ... -->
+                    <!-- // show: Book-Comments ... -->
                     <p class="comments_grafik_great">Kommentare:</p>
                     <div id="comments_positon${index}" class="comments_grafik">
                     </div>
 
                 </div>
             </div>
-            
-            <!-- Link to the icon-publisher for free download -->
             <a class="https_grafik" href="https://icons8.com/" target="_blank" title="icons8" class="external-link">Herz-ICONs von icons8.com</a>
         </section>
     `

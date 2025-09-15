@@ -1,24 +1,20 @@
 /* BASIS-Class */
-body {
-
-}
 h1 {
-    font-size: 3em;
+    font-size: 5em;
     color: rgb(50, 124, 189);
     font-style: italic;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 3em;
     color: white;
-    margin-left: 90px;
     background-color: blue;
+    padding-left: 10px;
     padding-top: 10px;
-    /* text-align: center; */
 }
 
-/* CLASS der ID-Boxen ... */
 
+/* CLASS der ID-Boxen ... */
 .header_grafik {
     display: flex;
     justify-content: center;
@@ -33,19 +29,18 @@ h2 {
 
 .main_grafik {
     background-color: blue;
-    border-radius: 20px;
+    border-radius: 20px 20px 20px 20px;
     margin-top: 30px;
     margin-left: 100px;
     margin-right: 100px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 
-.right_position{
+.right_position {
     background-color: blue;
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
 }
 
@@ -56,10 +51,11 @@ h2 {
 }
 
 .img_grafik {
-    width: 150px;
-    margin: 5px;
-    margin-bottom: 20px;
-    margin-left: 90px;
+    height: 350px;
+    aspect-ratio: auto;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .heart_img_grafik {
@@ -91,16 +87,47 @@ h2 {
 }
 
 .position_book_details {
+    /* display: flex; */
+
+    background-color: blue;
+}
+
+.main_book_details {
+    background-color: blue;
+}
+
+.comments_grafik_great {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: blue;
+    margin-bottom: 20px;
+}
+
+.comments_grafik {
+    background-color: blue;
+}
+
+.comments_incorrect_grafik {
+    font-size: 30px;
+    color: red;
+    background-color: blue;
+}
+
+.story_book_details {
+    width: 350px;
+    height: 50px;
     background-color: blue;
 }
 
 
-.price_details{
+.price_details {
     font-size: 35px;
     font-weight: bold;
     color: red;
     background-color: blue;
     margin-bottom: 5px;
+    margin-left: 80px;
 }
 
 .book_details {
@@ -108,6 +135,7 @@ h2 {
     font-weight: bold;
     background-color: blue;
     margin-bottom: 5px;
+    margin-left: 80px;
 }
 
 .book_details_dark {
@@ -115,6 +143,7 @@ h2 {
     color: darkgrey;
     background-color: blue;
     margin-bottom: 5px;
+    margin-left: 80px;
 }
 
 .book_details_content {
@@ -138,11 +167,29 @@ h2 {
     margin-right: 130px;
     color: bisque;
     background-color: blue;
-
 }
 
-.comment_grafik {
+.box_grafik {
+    font-size: 20px;
+    color: black;
+    background-color: white;
+}
 
+.button_grafik {
+    font-size: 20px;
+    color: black;
+    background-color: yellow;
+}
+
+.https_grafik {
+    font-size: 12px;
+    background-color: blue;
+}
+
+.https_grafik:hover {
+    font-size: 20px;
+    cursor: pointer;
+    color: yellow;
 }
 
 /* sonstige CLASS ... */

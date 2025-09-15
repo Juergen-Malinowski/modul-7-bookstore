@@ -1,4 +1,4 @@
-/* BASIS-Class */
+/* BASIC-Class */
 h1 {
     font-size: 5em;
     color: rgb(50, 124, 189);
@@ -14,7 +14,7 @@ h2 {
 }
 
 
-/* CLASS der ID-Boxen ... */
+/* CLASS for ID-Box ... */
 .header_grafik {
     display: flex;
     justify-content: center;
@@ -63,7 +63,6 @@ h2 {
     height: 50px;
     color: red;
     background-color: blue;
-    /* margin-left: 50px; */
 }
 
 .row_likes_grafik {
@@ -87,8 +86,6 @@ h2 {
 }
 
 .position_book_details {
-    /* display: flex; */
-
     background-color: blue;
 }
 
@@ -119,7 +116,6 @@ h2 {
     height: 50px;
     background-color: blue;
 }
-
 
 .price_details {
     font-size: 35px;
@@ -192,4 +188,86 @@ h2 {
     color: yellow;
 }
 
-/* sonstige CLASS ... */
+
+/* media-CLASS from 320px and up ... */
+@media (max-width: 855px) {
+    .main_grafik {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .right_position {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 2em;
+        padding-left: 0px;
+        padding-top: 5px;
+    }
+
+    .cover_grafik {
+        justify-content: center;
+    }
+
+    .price_details {
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+
+    .book_details {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-left: 0px;
+    }
+
+    .book_details_dark {
+        text-align: center;
+        margin-bottom: 5px;
+        margin-left: 0px;
+    }
+
+    .comments_grafik_great {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .comments_grafik {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .main_grafik {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 30px;
+    }
+
+    .img_grafik {
+        height: 230px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .right_position {
+        flex-direction: column;
+    }
+}

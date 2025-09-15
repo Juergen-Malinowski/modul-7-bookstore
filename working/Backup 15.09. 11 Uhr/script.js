@@ -33,6 +33,7 @@ function newComments(index) {
     let inputComment = "";
     userContent = document.getElementById(`user_input${index}`);
     commentContent = document.getElementById(`comment_input${index}`);
+
     if (userContent.value != "" && commentContent.value != "") {
         // NUR, WENN ... in BEIDEN Feldern ein neuer Wert vorliegt ...
         inputUser = userContent.value;
@@ -70,8 +71,10 @@ function toggleHeart(index) {
     // toggle color of Heart and change nummers of Likes
     let redHeart = "./assets/logo/red-heart-48px.png"
     let blackHeart = "./assets/logo/black-heart-48px.png"
+
     heart = document.getElementById(`toggle_heart${index}`);
     heart.innerHTML = "";
+
     if (books[index].liked) {
         // Liked change to NOT Liked
         books[index].liked = false;
@@ -84,3 +87,4 @@ function toggleHeart(index) {
         renderLike(index, redHeart);
     }
 }
+

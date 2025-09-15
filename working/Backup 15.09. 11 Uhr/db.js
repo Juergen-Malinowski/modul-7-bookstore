@@ -43,7 +43,7 @@ let books = [
         "bookCover": "./assets/img/die_kinder_hurins.jpg",
         "author": "J.R.R. Tolkien",
         "likes": 3850,
-        "liked": true,
+        "liked": false,
         "price": 17.95,
         "publishedYear": 2007,
         "genre": "Fantasy",
