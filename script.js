@@ -1,20 +1,3 @@
-// test-area
-// console.log(books[1]);
-// console.log(books[1].comments);
-// console.log(books[3].bookName + " von " + books[3].author + " aus " + books[3].publishedYear);
-
-// for (let index = 0; index < books.length; index++) {
-//     console.log(books[index].discription);
-// }
-
-// for (let index = 0; index < books.length; index++) {
-//     console.log("Kommentare zu 'Die Elfen' ..." + books[4].comments);
-// }
-// End of test-area
-
-
-// START script-JS
-
 
 // DEFINITION VARIABLE/CONST
 
@@ -55,7 +38,7 @@ function showBooks() {
 
 function renderBooks(index, showHeart) {
     // console.log(books[index].bookName);
-    
+
     return `
         <section  class="main_grafik">
             <h2> ${books[index].bookName}</h2>
@@ -69,7 +52,7 @@ function renderBooks(index, showHeart) {
                         <img class="heart_img_grafik"  
                             onclick="toggleHeart(${index})" 
                             src="${showHeart}" alt="Herz-ICON">
-                        <p class="likes_grafik">${books[index].likes}</p>
+                        <span class="likes_grafik">${books[index].likes}</span>
                     </p>
                     </div>
                 </figure>
@@ -124,8 +107,6 @@ function newComments(index) {
     let inputUser = "";
     let inputComment = "";
 
-    let userContent = "";
-    let commentContent = "";
     userContent = document.getElementById(`user_input${index}`);
     commentContent = document.getElementById(`comment_input${index}`);
 
@@ -163,48 +144,33 @@ function newComments(index) {
     }
 }
 
+
 function toggleHeart(index) {
+    // toggle color of Heart and change nummers of Likes
     let redHeart = "./assets/logo/red-heart-48px.png"
     let blackHeart = "./assets/logo/black-heart-48px.png"
-
-
 
     heart = document.getElementById(`toggle_heart${index}`);
     heart.innerHTML = "";
 
     if (books[index].liked) {
-        console.log("bisher ein geliktes Buch: ", books[index].liked);
-
+        // Liked change to NOT Liked
         books[index].liked = false;
-        books[index].liked = books[index].liked--;
-
-        console.log("JETZT geändert auf NICHT-LIKE: ", books[index].liked);
-        console.log("Anzahl LIKES: ", books[index].likes);
-
+        books[index].likes = books[index].likes - 1;
         heart.innerHTML = `<img class="heart_img_grafik"  
                             onclick="toggleHeart(${index})" 
                             src="${blackHeart}" alt="Herz-ICON">
-                        <p class="likes_grafik">${books[index].likes}</p>;
+                        <p class="likes_grafik">${books[index].likes}</p>
                         `
-
-
     } else {
-        console.log("bisher ein NICHT geliktes Buch: ", books[index].liked);
+        // NOT Liked change to Liked
         books[index].liked = true;
-        books[index].liked = books[index].liked++;
-        console.log("JETZT geändert auf LIKE: ", books[index].liked);
-        console.log("Anzahl LIKES: ", books[index].likes);
-
+        books[index].likes = books[index].likes + 1;
         heart.innerHTML = `<img class="heart_img_grafik"  
                             onclick="toggleHeart(${index})" 
                             src="${redHeart}" alt="Herz-ICON">
-                        <p class="likes_grafik">${books[index].likes}</p>;    
+                        <p class="likes_grafik">${books[index].likes}</p>    
                     `
     }
-
-    // allBooks = document.getElementById("book_list");
-    // allBooks = "";
-
-    // showBooks();
 }
 
