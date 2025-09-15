@@ -39,7 +39,7 @@ function renderBooks(index, showHeart) {
 
                 </div>
             </div>
-            
+
             <!-- Link to the icon-publisher for free download -->
             <a class="https_grafik" href="https://icons8.com/" target="_blank" title="icons8" class="external-link">Herz-ICONs von icons8.com</a>
         </section>
@@ -50,7 +50,7 @@ function renderBooks(index, showHeart) {
 function renderComments(index, indexList) {
     // render the comments for the book with this INDEX
     return `
-        <p class="comments_grafik">${books[index].comments[indexList].name}</p>
+        <p class="comments_grafik">${books[index].comments[indexList].name}:</p>
         <p class="comments_grafik">${books[index].comments[indexList].comment}</p><br>
     `
 }
