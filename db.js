@@ -116,7 +116,7 @@ let books = [
         "liked": true,
         "price": 15.75,
         "publishedYear": 2014,
-        "genre": "Fantasy",
+        "genre": "Fantasy (Buch-Reihe mit 6 Büchern)",
         "discription": "Ein verschneiter Gasthof. Ein Krieger mit dunklen Geheimnissen. Eine undurchschaubare Magierin. Und das Tor zu einer gefährlichen Welt, die längst vergessen schien ...",
         "comments": [
             {
@@ -151,7 +151,7 @@ let books = [
         "liked": true,
         "price": 18.99,
         "publishedYear": 2004,
-        "genre": "Fantasy",
+        "genre": "Fantasy (Buch-Reihe mit 12 Büchern)",
         "discription": "Menschen fürchten sie, wegen ihrer scheinbaren Kaltherzigkeit, Zwerge meiden sie, wegen ihrer Überheblichkeit und Trolle sehen in den sagenumwobenen Wesen eine schmackhafte Beute, die es zu erringen gilt. ",
         "comments": [
             {
